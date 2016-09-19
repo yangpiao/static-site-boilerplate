@@ -1,0 +1,24 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <title>
+    {%- if post.title %}{{post.title}} | {% endif %}
+    {%- if page.title %}{{page.title}} | {% endif %}
+    {%- if pagination and pagination.current > 1 %}Page {{pagination.current}} | {% endif -%}
+    {{$site.name}}
+  </title>
+  {% for css in $site.css -%}
+  <link rel="stylesheet" href="{{css}}">
+  {%- endfor %}
+  {% if $site.icon -%}
+  <link rel="shortcut icon" href="{{$site.icon}}">
+  <link rel="apple-touch-icon-precomposed" href="{{$site.icon}}">
+  {%- endif %}
+  {% if $site.rss -%}
+  <link rel="alternate" type="application/atom+xml" href="{{$site.rss}}">
+  {%- endif %}
+  {% for metaName, metaContent in $site.meta -%}
+  <meta name="{{metaName}}" content="{{metaContent}}">
+  {%- endfor %}
+  <link rel="canonical" href="{{url | absoluteUrl}}">
+</head>

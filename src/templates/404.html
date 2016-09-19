@@ -1,0 +1,17 @@
+{% extends "./_include/base.html" -%}
+{% import "./_include/macros.html" as macros -%}
+
+{%- block content -%}
+<article class="post">
+  <header class="post__header">
+    <h1 class="post__title">Error 404: Page Not Found</h1>
+  </header>
+  <div class="post__content">
+    <p>Unfortunately the page you've requested does not exist. Please feel free
+    to go back to <a href="{{$site.url}}">the front page</a> or check the recent
+    posts below.</p>
+    <h4>Recent Posts</h4>
+    {{macros.listPosts($allPosts, 5)}}
+  </div>
+</article>
+{%- endblock -%}

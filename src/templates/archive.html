@@ -1,0 +1,13 @@
+{% extends "./_include/base.html" -%}
+{% import "./_include/macros.html" as macros -%}
+
+{%- block content -%}
+<article class="post">
+  <header class="post__header">
+    <h1 class="post__title">All Posts</h1>
+  </header>
+  <div class="post__content">
+    {{macros.listPosts($allPosts)}}
+  </div>
+</article>
+{%- endblock -%}

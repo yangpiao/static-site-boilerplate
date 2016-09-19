@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  {% include "./head.html" %}
+  <body class="page-wrapper{{' single-post-page' if isPostPage else ''}}">
+    <header class="page-head">
+      <h1 class="page-head__title">
+        <a class="page-head__link" title="Go to front page" href="{{$site.url}}">{{$site.name}}</a>
+      </h1>
+    </header>
+    <main class="page-main">
+      {% block content %}{% endblock %}
+    </main>
+    <aside class="page-aside">
+      {% if not isPostPage -%}
+      {% include "./aside-tags.html" %}
+      <section class="page-aside__section archive">
+        <a class="archive__link" href="/archive.html">&rarr; All Posts</a>
+      </section>
+      {%- endif %}
+    </aside>
+    {% include "./foot.html" %}
+  </body>
+</html>

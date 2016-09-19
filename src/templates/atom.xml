@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[{{$site.name}}]]></title>
+  <link href="{{$site.url}}/atom.xml" rel="self"/>
+  <link href="{{$site.url}}/"/>
+  <updated>{{$allPosts[0].time | time}}</updated>
+  <id>{{$site.url}}/</id>
+  <author>
+    <name><![CDATA[{{$site.author}}]]></name>
+  </author>
+  {% for post in $allPosts -%}
+  {% if loop.index <= 10 -%}
+  <entry>
+    <author>
+      <name><![CDATA[{{post.author}}]]></name>
+      <uri>{{post.url | absoluteUrl}}</uri>
+    </author>
+    <title type="html"><![CDATA[{{post.title}}]]></title>
+    <link href="{{post.url | absoluteUrl}}"/>
+    <id>{{post.url | absoluteUrl}}</id>
+    <updated>{{post.time | time}}</updated>
+    <content type="html"><![CDATA[{{post.content|safe}}]]></content>
+  </entry>
+  {%- endif %}
+  {%- endfor %}
+</feed>

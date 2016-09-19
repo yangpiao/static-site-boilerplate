@@ -1,0 +1,17 @@
+{% macro listPosts(posts, limit = 0) -%}
+{% if limit <= 0 or limit > posts.length %}{% set limit = posts.length %}{% endif -%}
+<ol class="post-list{{' post-list--with-labels' if limit >= 10 else ''}}">
+  {% for post in posts -%}
+  {% if loop.index <= limit -%}
+  <li class="post-list__item">
+    <h2 class="post-list__title">
+      <a class="post-list__link" title="{{post.title}}" href="{{post.url}}">{{post.title}}</a>
+    </h2>
+    <div class="post__meta post__meta--small">
+      {% include "./article-meta.html" %}
+    </div>
+  </li>
+  {%- endif %}
+  {%- endfor %}
+</ol>
+{%- endmacro %}

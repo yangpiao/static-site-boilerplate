@@ -1,0 +1,15 @@
+{% if pagination -%}
+<nav class="page-nav">
+  {% if pagination.current > 1 -%}
+  <a class="page-nav__prev btn" title="Newer Posts"
+    href="{{pagination.urls[pagination.current - 1]}}">Newer Posts</a>
+  {%- endif %}
+  <span class="page-nav__number">
+    Page {{pagination.current}} of {{pagination.total}}
+  </span>
+  {% if pagination.current < pagination.total -%}
+  <a class="page-nav__next btn" title="Older Posts"
+    href="{{pagination.urls[pagination.current + 1]}}">Older Posts</a>
+  {%- endif %}
+</nav>
+{%- endif %}

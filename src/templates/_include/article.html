@@ -1,0 +1,28 @@
+<article class="post{{' hide-toc' if not isPostPage else ''}}">
+  <header class="post__header">
+    <h1 class="post__title">
+      <a title="{{post.title}}" href="{{post.url}}">{{post.title}}</a>
+    </h1>
+    <div class="post__meta">
+      {% include "./article-meta.html" %}
+    </div>
+    </div>
+  </header>
+  {% if post.excerpt and not isPostPage -%}
+  <div class="post__content">
+    {{post.excerpt | safe}}
+  </div>
+  <footer class="post__footer">
+    <a class="post__more" title="Read on" href="{{post.url}}">&rarr; Read on...</a>
+  </footer>
+  {% else -%}
+  <div class="post__content">
+    {{post.content | safe}}
+  </div>
+  {%- endif %}
+  {% if isPostPage and post.comments != 'no' -%}
+  <section class="comments">
+    {% include "./plugin-disqus.html" %}
+  </section>
+  {%- endif %}
+</article>
