@@ -287,11 +287,30 @@
     bottom: 0.25em;
   }
 }
+.md-heading {
+  position: relative;
+  padding-right: 24px;
+  &:hover .md-anchor {
+    display: inline-block;
+  }
+}
 .md-anchor {
   display: none;
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  top: 50%;
+  margin-top: -10px;
 }
 .md-anchor__icon {
-  // TODO
+  background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQ0NDQ0NDIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGQ9Ik0zLjkgMTJjMC0xLjcxIDEuMzktMy4xIDMuMS0zLjFoNFY3SDdjLTIuNzYgMC01IDIuMjQtNSA1czIuMjQgNSA1IDVoNHYtMS45SDdjLTEuNzEgMC0zLjEtMS4zOS0zLjEtMy4xek04IDEzaDh2LTJIOHYyem05LTZoLTR2MS45aDRjMS43MSAwIDMuMSAxLjM5IDMuMSAzLjFzLTEuMzkgMy4xLTMuMSAzLjFoLTRWMTdoNGMyLjc2IDAgNS0yLjI0IDUtNXMtMi4yNC01LTUtNXoiLz4KPC9zdmc+");
+  background-position: right center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }
 
 // different screens

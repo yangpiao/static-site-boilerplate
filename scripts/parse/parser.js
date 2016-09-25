@@ -11,7 +11,7 @@ renderer.heading = function(text, level) {
       .replace(/^-*|-*$/g, '')
       .toLowerCase();
   headings.push({ level, text, id });
-  return '<h' + level + ' id="' + id + '">' +
+  return '<h' + level + ' class="md-heading" id="' + id + '">' +
     '<a class="md-anchor" href="#' + id + '" aria-hidden="true">' +
     '<i class="md-anchor__icon"></i></a>' + text + '</h' + level + '>\n';
 };
