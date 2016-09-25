@@ -287,6 +287,12 @@
     bottom: 0.25em;
   }
 }
+.md-anchor {
+  display: none;
+}
+.md-anchor__icon {
+  // TODO
+}
 
 // different screens
 @media only screen

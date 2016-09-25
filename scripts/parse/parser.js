@@ -13,7 +13,7 @@ renderer.heading = function(text, level) {
   headings.push({ level, text, id });
   return '<h' + level + ' id="' + id + '">' +
     '<a class="md-anchor" href="#' + id + '" aria-hidden="true">' +
-    '<i class="md-anchor-icon"></i></a>' + text + '</h' + level + '>\n';
+    '<i class="md-anchor__icon"></i></a>' + text + '</h' + level + '>\n';
 };
 
 function addTocEntry(level, text, id) {
