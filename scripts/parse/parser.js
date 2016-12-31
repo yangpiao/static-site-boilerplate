@@ -74,9 +74,10 @@ renderer.image = function(href, title, text) {
 
 renderer.list = (body, ordered) => {
   const type = ordered ? 'ol' : 'ul';
-  return '<' + type + ' class="md-list">\n' + body + '</' + type + '>\n';
+  const className = 'md-list md-list--' + (ordered ? 'ordered' : 'unordered');
+  return `<${type} class="${className}">${body}</${type}>\n`;
 };
-renderer.listitem = (text) => '<li class="md-list__item">' + text + '</li>\n';
+renderer.listitem = (text) => `<li class="md-list__item">${text}</li>\n`;
 
 renderer.link = function(href, title, text) {
   if (this.options.sanitize) {
@@ -105,7 +106,10 @@ renderer.blockquote = (quote) =>
 
 marked.setOptions({
   renderer: renderer,
+  gfm: true,
+  tables: true,
   breaks: true,
+  smartLists: true,
   headerPrefix: 'post-heading-',
   langPrefix: 'hljs hljs--',
   highlight: (code, lang) => {

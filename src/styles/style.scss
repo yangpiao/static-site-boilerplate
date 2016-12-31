@@ -1,4 +1,5 @@
 @import 'base';
+@import 'svg';
 @import 'highlight';
 
 // layout
@@ -234,6 +235,7 @@
 .md-code-block,
 .md-figure,
 .md-list,
+.md-list--ordered,
 .md-quote {
   margin: 1em 0;
 }
@@ -305,12 +307,84 @@
   margin-top: -10px;
 }
 .md-anchor__icon {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQ0NDQ0NDIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGQ9Ik0zLjkgMTJjMC0xLjcxIDEuMzktMy4xIDMuMS0zLjFoNFY3SDdjLTIuNzYgMC01IDIuMjQtNSA1czIuMjQgNSA1IDVoNHYtMS45SDdjLTEuNzEgMC0zLjEtMS4zOS0zLjEtMy4xek04IDEzaDh2LTJIOHYyem05LTZoLTR2MS45aDRjMS43MSAwIDMuMSAxLjM5IDMuMSAzLjFzLTEuMzkgMy4xLTMuMSAzLjFoLTRWMTdoNGMyLjc2IDAgNS0yLjI0IDUtNXMtMi4yNC01LTUtNXoiLz4KPC9zdmc+");
+  background-image: url($linkIcon);
   background-position: right center;
   background-repeat: no-repeat;
   display: inline-block;
   width: 20px;
   height: 20px;
+}
+.md-list {
+  $marker-width: 1.6em;
+  $marker-color: lighten($color-link, 10%);
+  list-style: none;
+  padding-left: 0;
+  margin-left: $marker-width / 2;
+  > .md-list__item {
+    margin: 0;
+    padding-left: 1.25em;
+    padding-bottom: 0.5em;
+    position: relative;
+    &::before {
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      z-index: 2;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      display: block;
+      width: 1px;
+      height: 100%;
+      background-color: $marker-color;
+      z-index: 1;
+    }
+    &:last-child::after {
+      display: none;
+    }
+    &:only-child {
+      padding-bottom: 0;
+    }
+    > *:last-child {
+      margin-bottom: 0;
+    }
+    > *:first-child {
+      margin-top: 0;
+    }
+  }
+  &--ordered {
+    counter-reset: ordered-list;
+    > .md-list__item::before {
+      counter-increment: ordered-list;
+      content: counter(ordered-list);
+      left: - ($marker-width / 2);
+      top: 0.5em;
+      font-size: 0.6em;
+      width: $marker-width;
+      height: $marker-width;
+      line-height: $marker-width;
+      text-align: center;
+      border: 1px solid $marker-color;
+      border-radius: $marker-width;
+      background-color: white;
+    }
+  }
+  &--unordered {
+    > .md-list__item::before {
+      content: '';
+      left: -4px;
+      top: 0.7em;
+      width: 7px;
+      height: 7px;
+      background-color: lighten($color-link, 20%);
+    }
+    > .md-list__item::after {
+      content: none;
+    }
+  }
 }
 
 // different screens
