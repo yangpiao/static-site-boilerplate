@@ -2,6 +2,8 @@
 @import 'svg';
 @import 'highlight';
 
+$post-font-size: 0.9rem;
+
 // layout
 .page-wrapper {
   width: 100%;
@@ -47,7 +49,7 @@
 
 // post
 .post {
-  font-size: 0.9rem;
+  font-size: $post-font-size;
   line-height: 1.8;
   margin-bottom: 2em;
   padding-bottom: 2em;
@@ -315,7 +317,7 @@
   height: 20px;
 }
 .md-list {
-  $marker-width: 1.6em;
+  $marker-width: $post-font-size;
   $marker-color: lighten($color-link, 10%);
   list-style: none;
   padding-left: 0;
@@ -361,14 +363,15 @@
       counter-increment: ordered-list;
       content: counter(ordered-list);
       left: - ($marker-width / 2);
-      top: 0.5em;
+      top: 0.65em;
+      box-sizing: border-box;
       font-size: 0.6em;
       width: $marker-width;
       height: $marker-width;
-      line-height: $marker-width;
+      line-height: calc(#{$marker-width} - 2px);
       text-align: center;
       border: 1px solid $marker-color;
-      border-radius: $marker-width;
+      border-radius: 50%;
       background-color: white;
     }
   }
