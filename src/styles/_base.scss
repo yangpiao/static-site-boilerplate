@@ -89,6 +89,20 @@ pre code {
   border-radius: 0;
 }
 
+del {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-bottom: 3px solid $color-post-lighter;
+    top: 50%;
+    right: 0;
+  }
+}
+
 @mixin clearfix() {
   &::after {
     content: "";
