@@ -5,6 +5,9 @@
 $post-font-size: 0.9rem;
 
 // layout
+.root {
+  background-color: white;
+}
 .page-wrapper {
   width: 100%;
   max-width: $width-content;
@@ -64,7 +67,7 @@ $post-font-size: 0.9rem;
     height: 0.8em;
     line-height: 0.8em;
     overflow: hidden;
-    background: white;
+    background-color: white;
     position: absolute;
     bottom: -0.4em;
     left: 50%;

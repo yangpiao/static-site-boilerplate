@@ -1,7 +1,7 @@
 <span class="post__tags">
   {% for tag in post.tags -%}
   <a class="post__tag" title="#{{tag}}" href="{{$tagUrls[tag]}}">#{{tag}}</a>
-  {%- if not loop.last %},{% endif %}
+  {%- if not loop.last %}, {% endif %}
   {%- endfor %}
 </span>
 <time class="post__time" datetime="{{post.time|time}}">
