@@ -21,14 +21,7 @@ module.exports = {
     pagination: 10
   },
 
-  pageData: {
-    '404.html': {
-      title: '404 Not Found'
-    },
-    'archive.html': {
-      title: 'All posts'
-    }
-  },
+  pageData: require('./pages'),
 
   plugins: {
     disqus: '',

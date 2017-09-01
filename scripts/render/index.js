@@ -1,8 +1,10 @@
 const path = require('path');
 const writeFile = require('./write-file');
 const renderList = require('./render-list');
+const basename = name => path.basename(name, path.extname(name));
 
 module.exports = render;
+
 
 /**
  * contents = { posts, files, list, byTag, tags, tagUrls }
@@ -69,7 +71,7 @@ function render(contents, templateCache, config, outputDir) {
     file: path.join(outputDir, name),
     content: templateCache.templates[name].render({
       url: path.join('/', name.replace(/(\/|^)index.html$/i, '')),
-      page: pageData[name] || {}
+      page: pageData[basename(name)] || pageData[name] || {}
     })
   }));
   output.push(...pages);
