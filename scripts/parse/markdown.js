@@ -45,7 +45,7 @@ function markdown(raw) {
   const content = article.content;
   const toc = generateTOC(article.toc);
   const result = {
-    content: content.replace(TOC, generateTOC(article.toc)),
+    content: content.replace(TOC, toc),
     toc: toc
   };
   // excerpt

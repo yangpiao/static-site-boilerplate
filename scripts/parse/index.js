@@ -36,7 +36,9 @@ function processPosts(contents, siteConfig) {
     post.author = post.author || siteConfig.author;
     // url
     if (!post.url) {
-      post.url = fileCache[post.$id].name.replace(/\.md$/i, '');
+      const relativePath = fileCache[post.$id].path.relative;
+      const ext = path.extname(relativePath);
+      post.url = relativePath.substring(0, relativePath.length - ext.length);
     }
     post.url = path.join(siteConfig.blog.postUrlPrefix, post.url);
     if (path.extname(post.url)) {
