@@ -3,22 +3,20 @@ const glob = require('glob');
 const async = require('async');
 const readfile = require('./readfile');
 
-module.exports = dir => new Promise((resolve, reject) => {
-  glob('**/*.md', { cwd: dir }, (err, filenames) => {
-    if (err) {
-      reject(err);
-      return;
-    }
-    const paths = filenames.map(name => ({
-      relative: name,
-      absolute: path.resolve(dir, name)
-    }));
-    async.map(paths, readfile, (err, files) => {
+function getPaths(pattern, dir) {
+  return new Promise((resolve, reject) => {
+    glob(pattern, { cwd: dir }, (err, filenames) => {
       if (err) {
         reject(err);
         return;
       }
-      resolve(files);
+      resolve(filenames.map(name => ({
+        relative: name,
+        absolute: path.resolve(dir, name)
+      })));
     });
   });
-});
+}
+
+module.exports = dir =>
+  getPaths('**/*.md', dir).then(paths => Promise.all(paths.map(readfile)));

@@ -1,6 +1,5 @@
 const path = require('path');
 const glob = require('glob');
-const async = require('async');
 const readAll = require('./read-all');
 const markdown = require('./markdown');
 
