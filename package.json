@@ -17,8 +17,7 @@
     "nunjucks": "3.0.1"
   },
   "engines": {
-    "node": ">=8.0",
-    "yarn": "^1.0.1"
+    "node": ">=8.0"
   },
   "scripts": {
     "clean": "rm -rf build",
