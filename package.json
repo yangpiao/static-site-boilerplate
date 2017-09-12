@@ -1,31 +1,29 @@
 {
   "name": "site-gen",
   "version": "1.0.0",
-  "description": "Static site generator",
+  "description": "Static site boilerplate",
   "author": "Yang Piao",
-  "private": true,
-  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "7.1.2",
     "browser-sync": "2.18.1",
-    "cssnano": "3.10.0",
     "glob": "7.1.2",
     "gulp": "3.9.1",
     "gulp-postcss": "7.0.0",
-    "gulp-sass": "3.1.0",
-    "gulp-sourcemaps": "2.6.1",
     "highlight.js": "9.12.0",
     "js-yaml": "3.10.0",
     "marked": "0.3.6",
     "moment": "2.14.1",
+    "node-sass": "^4.5.3",
     "nunjucks": "3.0.1"
   },
   "engines": {
-    "node": ">=8.0"
+    "node": ">=8.0",
+    "yarn": "^1.0.1"
   },
   "scripts": {
     "clean": "rm -rf build",
     "build": "gulp build",
     "serve": "gulp serve"
-  }
+  },
+  "license": "MIT"
 }

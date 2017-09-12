@@ -1,10 +1,8 @@
 const gulp = require('gulp');
 const exec = require('child_process').exec;
-const sourcemaps = require('gulp-sourcemaps');
-const sass = require('gulp-sass');
+const sass = require('node-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
 const browserSync = require('browser-sync').create();
 const properties = require('./properties');
 const allFiles = '/**/*';
@@ -12,7 +10,8 @@ const glob = {
   posts: properties.dir.posts + allFiles + '.md',
   templates: properties.dir.templates + allFiles + '.{html,xml}',
   static: properties.dir.static + allFiles + '',
-  styles: properties.dir.styles + allFiles + '.scss'
+  styles: properties.dir.styles + allFiles + '.scss',
+  css: properties.dir.css + allFiles + '.css'
 };
 
 gulp.task('clean', callback => {
@@ -28,16 +27,17 @@ gulp.task('build:static', () =>
     .pipe(gulp.dest(properties.dir.build))
 );
 
-gulp.task('styles', () =>
-  gulp.src(glob.styles)
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+gulp.task('sass', callback => {
+  exec('./node_modules/.bin/node-sass ' + properties.dir.styles +
+    ' --output-style compressed -o ' + properties.dir.css, callback);
+});
+
+gulp.task('styles', ['sass'], () =>
+  gulp.src(glob.css)
     .pipe(postcss([
-      autoprefixer({ browsers: ['last 5 versions', 'not ie <= 8'] }),
-      cssnano()
+      autoprefixer({ browsers: ['last 5 versions', 'not ie <= 8'] })
     ]))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(properties.dir.build + '/css'))
+    .pipe(gulp.dest(properties.dir.css))
 );
 
 gulp.task('build', ['build:src', 'build:static', 'styles']);
