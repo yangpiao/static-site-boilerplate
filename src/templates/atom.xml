@@ -13,11 +13,11 @@
   <entry>
     <author>
       <name><![CDATA[{{post.author}}]]></name>
-      <uri>{{post.url | absoluteUrl}}</uri>
+      <uri>{{absoluteUrl}}</uri>
     </author>
     <title type="html"><![CDATA[{{post.title}}]]></title>
-    <link href="{{post.url | absoluteUrl}}"/>
-    <id>{{post.url | absoluteUrl}}</id>
+    <link href="{{absoluteUrl}}"/>
+    <id>{{absoluteUrl}}</id>
     <updated>{{post.time | time}}</updated>
     <content type="html"><![CDATA[{{post.content|safe}}]]></content>
   </entry>

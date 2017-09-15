@@ -20,5 +20,5 @@
   {% for metaName, metaContent in $site.meta -%}
   <meta name="{{metaName}}" content="{{metaContent}}">
   {%- endfor %}
-  <link rel="canonical" href="{{url | absoluteUrl}}">
+  <link rel="canonical" href="{{absoluteUrl}}">
 </head>
