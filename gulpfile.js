@@ -9,7 +9,7 @@ const allFiles = '/**/*';
 const glob = {
   posts: properties.dir.posts + allFiles + '.md',
   templates: properties.dir.templates + allFiles + '.{html,xml}',
-  static: properties.dir.static + allFiles + '',
+  static: properties.dir.static + allFiles,
   styles: properties.dir.styles + allFiles + '.scss',
   css: properties.dir.css + allFiles + '.css'
 };
@@ -18,19 +18,18 @@ gulp.task('clean', callback => {
   exec('rm -rf ' + properties.dir.build, callback);
 });
 
+gulp.task('sass', callback => {
+  exec(properties.sass.join(' '), callback);
+});
+
 gulp.task('build:src', callback => {
-  exec('node ' + properties.buildScript, callback);
+  exec(properties.builder.join(' '), callback);
 });
 
 gulp.task('build:static', () =>
   gulp.src(glob.static)
     .pipe(gulp.dest(properties.dir.build))
 );
-
-gulp.task('sass', callback => {
-  exec('./node_modules/.bin/node-sass ' + properties.dir.styles +
-    ' --output-style compressed -o ' + properties.dir.css, callback);
-});
 
 gulp.task('styles', ['sass'], () =>
   gulp.src(glob.css)
@@ -57,8 +56,7 @@ gulp.task('serve', ['default'], () => {
       baseDir: properties.dir.build
     }
   });
-  gulp.watch([glob.posts, glob.templates, './site.config.js', './scripts/**/*'],
-             ['watch:src']);
+  gulp.watch([glob.posts, glob.templates, './site.config.yml', './lib/**/*'], ['watch:src']);
   gulp.watch(glob.static, ['watch:static']);
   gulp.watch(glob.styles, ['watch:styles']);
 });

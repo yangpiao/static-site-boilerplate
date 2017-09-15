@@ -1,9 +1,9 @@
 <section class="page-aside__section tags">
   <h3 class="tags__title">Tags</h3>
   <ul class="tags__list">
-    {%- for tag in $tags %}
+    {%- for key, tag in $tags | dictsort %}
     <li class="tags__list-item">
-      <a class="tags__link" title="#{{tag}}" href="{{$tagUrls[tag]}}">#{{tag}}</a>
+      <a class="tags__link" title="#{{tag.name}}" href="{{tag.url}}">#{{tag.name}}</a>
     </li>
     {%- endfor %}
   </ul>
