@@ -36,6 +36,9 @@ $post-font-size: 0.9rem;
   max-height: 80%;
   padding-bottom: 2em;
 }
+.page-footer {
+  margin-bottom: 1.5em;
+}
 
 // page head
 .page-head__title {
@@ -48,6 +51,22 @@ $post-font-size: 0.9rem;
     color: $color-post-darker;
     text-decoration: none;
   }
+}
+
+// page foot
+.page-footer__links {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.page-footer__links-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 1em;
+  width: 5em;
+}
+.page-footer__link {
+  font-size: 0.8em;
 }
 
 // post
@@ -73,11 +92,14 @@ $post-font-size: 0.9rem;
     left: 50%;
     margin-left: -0.8em;
   }
-  &:last-child {
+  &:last-of-type:not(:only-of-type) {
     border-bottom: 0 none;
     &::after {
       display: none;
     }
+  }
+  &:only-of-type {
+    margin-bottom: 1.5em;
   }
 }
 .post__header {

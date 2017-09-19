@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[{{$site.name}}]]></title>
-  <link href="{{$site.url}}/{{url}}" rel="self"/>
+  <link href="{{page.absoluteUrl}}" rel="self"/>
   <link href="{{$site.url}}/"/>
   <updated>{{$allPosts[0].time | time}}</updated>
   <id>{{$site.url}}/</id>
