@@ -1,3 +1,4 @@
 ---
-title: All posts
+title: Articles
+url: archive.html
 ...

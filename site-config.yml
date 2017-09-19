@@ -21,7 +21,7 @@ blog:
     tag: /tag/{{tag}}
     list: /
   pagination:
-    count: 2
+    count: 10
     pattern: /page/{{page}}
 
 plugins:
