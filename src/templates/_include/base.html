@@ -14,7 +14,7 @@
       {% if not isPostPage -%}
       {% include "./aside-tags.html" %}
       <section class="page-aside__section archive">
-        <a class="archive__link" href="/archive.html">&rarr; All Posts</a>
+        <a class="archive__link" href="{{'page!archive' | xref}}">&rarr; All Articles</a>
       </section>
       {%- endif %}
     </aside>
