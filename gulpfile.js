@@ -8,6 +8,7 @@ const properties = require('./properties');
 const allFiles = '/**/*';
 const glob = {
   posts: properties.dir.posts + allFiles + '.md',
+  pages: properties.dir.pages + allFiles + '.md',
   templates: properties.dir.templates + allFiles + '.{html,xml}',
   static: properties.dir.static + allFiles,
   styles: properties.dir.styles + allFiles + '.scss',
@@ -56,7 +57,13 @@ gulp.task('serve', ['default'], () => {
       baseDir: properties.dir.build
     }
   });
-  gulp.watch([glob.posts, glob.templates, './site.config.yml', './lib/**/*'], ['watch:src']);
+  gulp.watch([
+    glob.posts,
+    glob.pages,
+    glob.templates,
+    './site.config.yml',
+    './lib/**/*'
+  ], ['watch:src']);
   gulp.watch(glob.static, ['watch:static']);
   gulp.watch(glob.styles, ['watch:styles']);
 });
