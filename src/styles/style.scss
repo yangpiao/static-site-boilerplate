@@ -19,7 +19,8 @@ $post-font-size: 0.9rem;
   overflow: hidden;
 }
 .page-head,
-.page-aside {
+.page-aside,
+.page-footer {
   width: $width-aside;
   box-sizing: border-box;
   position: fixed;
@@ -32,12 +33,20 @@ $post-font-size: 0.9rem;
   top: 0;
 }
 .page-aside {
-  bottom: 0;
+  bottom: 5em;
   max-height: 80%;
   padding-bottom: 2em;
 }
 .page-footer {
-  margin-bottom: 1.5em;
+  width: $width-aside - 100px;
+  bottom: 0;
+  margin-bottom: 1em;
+}
+.page-footer--post {
+  position: static;
+  width: auto;
+  padding: 1.5em 0;
+  border-top: 1px solid $color-border;
 }
 
 // page head
@@ -55,18 +64,26 @@ $post-font-size: 0.9rem;
 
 // page foot
 .page-footer__links {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
-  text-align: center;
 }
 .page-footer__links-item {
   list-style: none;
-  display: inline-block;
-  margin: 0 1em;
-  width: 5em;
+  margin: 0;
 }
-.page-footer__link {
-  font-size: 0.8em;
+.page-footer--post {
+  .page-footer__links {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .page-footer__links-item {
+    display: inline-block;
+    margin: 0 1em;
+    width: 5em;
+  }
+  .page-footer__link {
+    margin: 0;
+  }
 }
 
 // post
@@ -92,14 +109,11 @@ $post-font-size: 0.9rem;
     left: 50%;
     margin-left: -0.8em;
   }
-  &:last-of-type:not(:only-of-type) {
+  &:last-of-type {
     border-bottom: 0 none;
     &::after {
       display: none;
     }
-  }
-  &:only-of-type {
-    margin-bottom: 1.5em;
   }
 }
 .post__header {
@@ -444,6 +458,27 @@ and (max-width: $width-content + $width-aside) {
   }
   .page-head__title {
     text-align: center;
+  }
+  .page-aside {
+    padding-bottom: 1em;
+  }
+  .page-footer {
+    position: static;
+    width: auto;
+    padding: 1.5em 0;
+    border-top: 1px solid $color-border;
+  }
+  .page-footer__links {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .page-footer__links-item {
+    display: inline-block;
+    margin: 0 1em;
+    width: 5em;
+  }
+  .page-footer__link {
+    margin: 0;
   }
   .tags__title {
     background-color: $color-bg-light;

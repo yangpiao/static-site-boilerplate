@@ -13,24 +13,21 @@
     <aside class="page-aside">
       {% if not isPostPage -%}
       {% include "./aside-tags.html" %}
-      <section class="page-aside__section archive">
-        <a class="archive__link" href="{{'page!archive' | xref}}"
-          title="All Articles">&rarr; All Articles</a>
-      </section>
       {%- endif %}
     </aside>
-    {% if isPostPage -%}
-    <footer class="page-footer">
+    <footer class="page-footer{{' page-footer--post' if isPostPage else ''}}">
       <ul class="page-footer__links">
         <li class="page-footer__links-item">
           <a class="page-footer__link" href="{{$site.url}}">Home</a>
+        </li>
+        <li class="page-footer__links-item">
+          <a class="page-footer__link" href="{{'page!about' | xref}}" title="About">About</a>
         </li>
         <li class="page-footer__links-item">
           <a class="page-footer__link" href="{{'page!archive' | xref}}" title="Articles">Articles</a>
         </li>
       </ul>
     </footer>
-    {%- endif %}
     {% include "./foot.html" %}
   </body>
 </html>
