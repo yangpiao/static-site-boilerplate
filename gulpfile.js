@@ -27,45 +27,32 @@ const watchedFiles = {
 
 // >>>>>>>>>> tasks <<<<<<<<<<
 
-const clean = callback => exec(`rm -rf ${properties.dir.build}`, callback);
+const clean = () => exec(`rm -rf ${properties.dir.build}`);
 
-const buildSrc = callback => exec(properties.builder.join(' '), callback);
-
+const buildSrc = () => exec(properties.builder.join(' '));
 const buildStatic = () => src(glob.static).pipe(dest(properties.dir.build));
-
-const buildSass = callback => exec(properties.sass.join(' '), callback);
+const buildSass = () => exec(properties.sass.join(' '));
 const buildPostcss = () =>
   src(glob.css)
     .pipe(postcss([ autoprefixer() ]))
     .pipe(dest(properties.dir.css));
 const buildStyles = series(buildSass, buildPostcss);
-
 const build = parallel(buildSrc, buildStatic, buildStyles);
 
-const reload = callback => {
-  browserSync.reload();
-  callback();
-};
-
-const serve = () => {
+const reload = () => Promise.resolve(browserSync.reload());
+const serveFiles = (callback) => {
   browserSync.init({
     server: {
       baseDir: properties.dir.build
     }
   });
-
-  watch(watchedFiles.src, { ignoreInitial: false }, series(buildSrc, reload));
-  watch(watchedFiles.static, { ignoreInitial: false }, series(buildStatic, reload));
-  watch(watchedFiles.styles, { ignoreInitial: false }, series(buildStyles, reload));
+  watch(watchedFiles.src, series(buildSrc, reload));
+  watch(watchedFiles.static, series(buildStatic, reload));
+  watch(watchedFiles.styles, series(buildStyles, reload));
+  callback();
 };
+const serve = series(clean, build, serveFiles);
 
-Object.assign(exports, {
-  clean,
-  buildSrc,
-  buildStatic,
-  buildStyles,
-  build,
-  serve
-});
+Object.assign(exports, { clean, build, serve });
 exports.default = series(clean, build);
 
