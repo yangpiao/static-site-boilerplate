@@ -54,9 +54,9 @@ const serve = () => {
     }
   });
 
-  watch(watchedFiles.src, series(buildSrc, reload));
-  watch(watchedFiles.static, series(buildStatic, reload));
-  watch(watchedFiles.styles, series(buildStyles, reload));
+  watch(watchedFiles.src, { ignoreInitial: false }, series(buildSrc, reload));
+  watch(watchedFiles.static, { ignoreInitial: false }, series(buildStatic, reload));
+  watch(watchedFiles.styles, { ignoreInitial: false }, series(buildStyles, reload));
 };
 
 Object.assign(exports, {
