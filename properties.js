@@ -23,9 +23,8 @@ module.exports = {
     `--output=${dir.build}`
   ],
   sass: [
-    './node_modules/.bin/node-sass',
-    dir.styles,
-    '--output-style compressed',
-    `-o ${dir.css}`
+    'yarn sass',
+    '--style compressed',
+    `${dir.styles}:${dir.css}`
   ]
 };
