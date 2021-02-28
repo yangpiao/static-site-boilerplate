@@ -9,7 +9,7 @@ const dir = {
   pages: `${SRC}/pages`,
   templates: `${SRC}/templates`,
   styles: `${SRC}/styles`,
-  static: `${SRC}/website`,
+  static: `${SRC}/assets`,
 };
 module.exports = {
   dir,
