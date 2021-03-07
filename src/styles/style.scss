@@ -417,10 +417,10 @@ $post-font-size: 0.9rem;
   &--unordered {
     > .md-list__item::before {
       content: '';
-      left: -4px;
-      top: 0.7em;
-      width: 7px;
-      height: 7px;
+      left: -0.5em;
+      top: .75em;
+      width: 0.5em;
+      height: 0.5em;
       background-color: lighten($color-link, 20%);
     }
     > .md-list__item::after {

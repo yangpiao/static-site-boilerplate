@@ -1,0 +1,11 @@
+const SRC = 'src';
+const DIST = 'dist';
+exports.SRC = SRC;
+exports.DIST = DIST;
+exports.POSTS = `${SRC}/posts`;
+exports.PAGES = `${SRC}/pages`;
+exports.TEMPLATES = `${SRC}/templates`;
+exports.ASSETS = `${SRC}/assets`;
+exports.STYLES = `${SRC}/styles`;
+exports.CSS = `${DIST}/css`;
+exports.SITE_CONFIG = 'site-config.yml';

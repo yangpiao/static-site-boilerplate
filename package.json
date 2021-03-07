@@ -3,6 +3,11 @@
   "version": "1.1.0",
   "description": "Static site boilerplate",
   "author": "Yang Piao",
+  "scripts": {
+    "clean": "gulp clean",
+    "build": "gulp build",
+    "serve": "gulp serve"
+  },
   "devDependencies": {
     "autoprefixer": "^10.2.1",
     "browser-sync": "^2.26.13",
@@ -19,11 +24,6 @@
   },
   "engines": {
     "node": ">=8.0"
-  },
-  "scripts": {
-    "clean": "rm -rf build",
-    "build": "gulp build",
-    "serve": "gulp serve"
   },
   "license": "MIT"
 }
