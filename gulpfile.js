@@ -25,19 +25,19 @@ const CSS = `${PATH_CSS}/**/*.css`;
 const LIB = 'lib/**/*';
 
 // clean
-const clean = (cb) => exec(`rm -rf ${DIST}`, cb);
+const clean = () => exec(`rm -rf ${DIST}`);
 
 // assets
 const moveAssets = () => src(ASSETS).pipe(dest(DIST));
 // styles
-const buildSass = (cb) => exec(`yarn sass --style compressed ${PATH_STYLES}:${PATH_CSS}`, cb);
+const buildSass = () => exec(`yarn sass --style compressed ${PATH_STYLES}:${PATH_CSS}`);
 const buildPostcss = () =>
   src(CSS)
     .pipe(postcss([ autoprefixer() ]))
     .pipe(dest(PATH_CSS));
 const buildStyles = series(buildSass, buildPostcss);
 // html
-const buildHtml = (cb) => exec(`node ./lib/build.js --config=build-config.js`, cb);
+const buildHtml = () => exec(`node ./lib/build.js --config=build-config.js`);
 // build all in parallel
 const build = parallel(moveAssets, buildHtml, buildStyles);
 
@@ -55,6 +55,8 @@ const serveFiles = (callback) => {
 };
 
 exports.clean = clean;
+exports.buildHtml = buildHtml;
+exports.buildStyles = buildStyles;
 exports.build = build;
 exports.serve = series(clean, build, serveFiles);
 exports.default = series(clean, build);
