@@ -3,12 +3,12 @@
   <title><![CDATA[{{$site.name}}]]></title>
   <link href="{{page.absoluteUrl}}" rel="self"/>
   <link href="{{$site.url}}/"/>
-  <updated>{{$allPosts[0].time | time}}</updated>
+  <updated>{{$posts[0].time | time}}</updated>
   <id>{{$site.url}}/</id>
   <author>
     <name><![CDATA[{{$site.author}}]]></name>
   </author>
-  {% for post in $allPosts -%}
+  {% for post in $posts -%}
   {% if loop.index <= 10 -%}
   <entry>
     <author>

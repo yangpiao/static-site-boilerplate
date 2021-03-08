@@ -12,10 +12,6 @@ css:
 scripts:
 
 blog:
-  templates:
-    post: blog/post.html
-    tag: blog/tag.html
-    list: blog/index.html
   urls:
     post: /posts/{{post}}
     tag: /tag/{{tag}}
