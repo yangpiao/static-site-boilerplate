@@ -4,11 +4,11 @@
 <article class="post">
   <header class="post__header">
     <h1 class="post__title">
-      <a title="{{page.title}}" href="{{page.url}}">{{page.title}}</a>
+      <a title="{{title}}" href="{{url}}">{{title}}</a>
     </h1>
   </header>
   <div class="post__content">
-    {{page.content | safe}}
+    {{content | safe}}
   </div>
 </article>
 {%- endblock -%}

@@ -15,7 +15,7 @@ blog:
   urls:
     post: /posts/{{post}}
     tag: /tag/{{tag}}
-    list: /
+    index: /
   pagination:
     count: 10
     pattern: /page/{{page}}

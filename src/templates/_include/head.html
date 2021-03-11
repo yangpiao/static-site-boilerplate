@@ -2,8 +2,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0">
   <title>
-    {%- if post.title %}{{post.title}} | {% endif %}
-    {%- if page.title %}{{page.title}} | {% endif %}
+    {%- if title %}{{title}} | {% endif %}
+    {%- if title %}{{title}} | {% endif %}
     {%- if pagination and pagination.current > 1 %}Page {{pagination.current}} | {% endif -%}
     {{$site.name}}
   </title>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[{{$site.name}}]]></title>
-  <link href="{{page.absoluteUrl}}" rel="self"/>
+  <link href="{{absoluteUrl}}" rel="self"/>
   <link href="{{$site.url}}/"/>
-  <updated>{{$posts[0].time | time}}</updated>
+  <updated>{{$posts[0].time | datetime}}</updated>
   <id>{{$site.url}}/</id>
   <author>
     <name><![CDATA[{{$site.author}}]]></name>
@@ -18,7 +18,7 @@
     <title type="html"><![CDATA[{{post.title}}]]></title>
     <link href="{{post.absoluteUrl}}"/>
     <id>{{post.absoluteUrl}}</id>
-    <updated>{{post.time | time}}</updated>
+    <updated>{{post.time | datetime}}</updated>
     <content type="html"><![CDATA[{{post.content|safe}}]]></content>
   </entry>
   {%- endif %}
