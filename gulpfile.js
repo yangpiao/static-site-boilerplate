@@ -40,7 +40,11 @@ const buildPostcss = () =>
     .pipe(dest(PATH_CSS));
 const buildStyles = series(buildSass, buildPostcss);
 // html
-const buildHtml = () => exec(`node ./lib/build.js --config=build-config.js`);
+const renderHtml = () => exec(`node ./lib/build.js --config=build-config.js`);
+const minifyHtml = () => exec(
+  `yarn html-minifier --collapse-whitespace --input-dir ${DIST} --file-ext html --output-dir ${DIST}`
+);
+const buildHtml = series(renderHtml, minifyHtml);
 // build all in parallel
 const build = parallel(moveAssets, buildHtml, buildStyles);
 
