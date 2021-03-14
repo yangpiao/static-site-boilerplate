@@ -11,14 +11,14 @@
   </header>
 
   {% if excerpt and not isPostPage %}
-    <div class="post__content">
+    <div class="post__content {{contentClass}}">
       {{excerpt | safe}}
     </div>
     <footer class="post__footer">
       <a class="post__more" href="{{url}}">&rarr; Read more...</a>
     </footer>
   {% else %}
-    <div class="post__content">
+    <div class="post__content {{contentClass}}">
       {{content | safe}}
     </div>
   {% endif %}
