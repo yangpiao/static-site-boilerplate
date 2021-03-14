@@ -1,5 +1,5 @@
-name: website
-author: author
+name: Website
+author: Author Name
 url: http://localhost:3000
 meta:
   keywords: static website
@@ -8,7 +8,7 @@ meta:
 icon: /favicon.png
 rss: http://localhost:3000/atom.xml
 css:
-  - /css/style.css?v=1.0.0
+  - /css/styles.css?v=1.0.0
 scripts:
 
 blog:

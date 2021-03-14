@@ -1,0 +1,11 @@
+.page-body {
+  &__header,
+  &__content {
+    margin-bottom: 1.5em;
+  }
+
+  &__content {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}

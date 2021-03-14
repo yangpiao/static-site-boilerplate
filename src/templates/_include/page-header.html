@@ -1,0 +1,21 @@
+<header class="page-header">
+  <h1 class="page-header__title">
+    <a class="page-header__title-link" title="{{$site.name}}" href="{{$site.url}}">{{$site.name}}</a>
+  </h1>
+  <nav class="page-header__nav">
+    <ul class="page-header__nav-links">
+      <li class="page-header__nav-item">
+        <a class="page-header__link" href="{{$site.url}}">Home</a>
+      </li>
+      <li class="page-header__nav-item">
+        <a class="page-header__link" href="{{'page:about' | xref}}" title="About">About</a>
+      </li>
+      <li class="page-header__nav-item">
+        <a class="page-header__link" href="{{'page:archive' | xref}}" title="Articles">Articles</a>
+      </li>
+      <li class="page-header__nav-item">
+        <a class="page-header__link" href="{{'page:tags' | xref}}" title="TagsArticles">Tags</a>
+      </li>
+    </ul>
+  </nav>
+</header>

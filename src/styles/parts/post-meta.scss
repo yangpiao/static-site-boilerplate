@@ -1,0 +1,25 @@
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.9em;
+  color: $font-color--light;
+
+  &__author,
+  &__time {
+    flex-shrink: 0;
+  }
+
+  &__separator {
+    width: 1.5em;
+    text-align: center;
+  }
+
+  &__tags {
+    display: flex;
+  }
+
+  &__tag {
+    margin-right: 0.5em;
+  }
+}

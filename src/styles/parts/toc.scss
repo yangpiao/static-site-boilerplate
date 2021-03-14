@@ -1,0 +1,15 @@
+.toc {
+  font-size: 0.9091em;
+  margin: 1em 0;
+  padding: 1.25em 1.5em 0.1em 1.5em;
+  border-left: 5px solid $border-color;
+  color: $font-color--light;
+  background-color: $background-color--lightgray;
+
+  &__title {
+    font-size: 1.25em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $border-color;
+  }
+}

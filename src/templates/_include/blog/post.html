@@ -1,0 +1,27 @@
+<section class="post">
+  <header class="post__header">
+    <h1 class="post__title">
+      {% if isPostPage %}
+        {{title}}
+      {% else %}
+        <a href="{{url}}">{{title}}</a>
+      {% endif %}
+    </h1>
+    {% include "./post-meta.html" %}
+  </header>
+
+  {% if excerpt and not isPostPage %}
+    <div class="post__content">
+      {{excerpt | safe}}
+    </div>
+    <footer class="post__footer">
+      <a class="post__more" href="{{url}}">&rarr; Read more...</a>
+    </footer>
+  {% else %}
+    <div class="post__content">
+      {{content | safe}}
+    </div>
+  {% endif %}
+
+  {% include "./post-comments.html" %}
+</section>

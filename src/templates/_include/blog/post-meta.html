@@ -1,0 +1,17 @@
+<div class="post-meta">
+  <div class="post-meta__author">{{author}}</div>
+  <div class="post-meta__separator" aria-hidden="true">•</div>
+  <div class="post-meta__time">
+    <time datetime="{{time | datetime}}">
+      {{time | datetime('MMM D, YYYY')}}
+    </time>
+  </div>
+  <div class="post-meta__separator" aria-hidden="true">•</div>
+  <ul class="post-meta__tags">
+    {% for tag in tags %}
+      <li class="post-meta__tag">
+        <a class="post-meta__tag-link" title="#{{tag}}" href="{{tag | tagUrl}}">#{{tag}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

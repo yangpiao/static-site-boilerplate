@@ -1,14 +1,12 @@
-{% extends "./_include/base.html" -%}
+{% extends "./_include/base-page.html" %}
 
-{%- block content -%}
-<article class="post">
-  <header class="post__header">
-    <h1 class="post__title">
-      <a title="{{title}}" href="{{url}}">{{title}}</a>
-    </h1>
-  </header>
-  <div class="post__content">
-    {{content | safe}}
-  </div>
-</article>
-{%- endblock -%}
+{% block pageBody %}
+  <section class="post">
+    <header class="post__header">
+      <h1 class="post__title">{{title}}</h1>
+    </header>
+    <div class="post__content">
+      {{content | safe}}
+    </div>
+  </section>
+{% endblock %}

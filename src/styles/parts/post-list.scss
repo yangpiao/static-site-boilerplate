@@ -1,0 +1,35 @@
+.post-list {
+  padding-bottom: 1em;
+
+  &__item {
+    margin: 1.5em 0;
+  }
+
+  &__meta {
+    margin-top: 0.5em;
+  }
+
+  &__separator {
+    margin: 2em 0;
+    border: 0 none;
+    border-bottom: 1px solid $border-color;
+    position: relative;
+    overflow: visible;
+
+    &::after {
+      content: '∞';
+      color: $border-color;
+      background-color: $background-color;
+      text-align: center;
+      display: block;
+      overflow: hidden;
+      position: absolute;
+      width: 1.6em;
+      height: 0.8em;
+      line-height: 0.8em;
+      margin-left: -0.8em;
+      bottom: -0.4em;
+      left: 50%;
+    }
+  }
+}

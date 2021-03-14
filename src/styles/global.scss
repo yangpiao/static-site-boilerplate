@@ -1,0 +1,123 @@
+:root {
+  background-color: $background-color;
+  color: $font-color;
+  font-family: $font-sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  max-width: $page-width;
+  margin: 0 auto;
+  padding: 0;
+}
+
+p {
+  font-size: 1em;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1.125em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 1em;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    // color: $link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+pre,
+code {
+  font-family: $font-monospace;
+  font-size: 0.9em;
+}
+
+code {
+  color: $code-color;
+  background-color: $code-bg-color;
+  padding-left: 0.3em;
+  padding-right: 0.3em;
+  border-radius: 2px;
+
+  pre & {
+    background-color: inherit;
+    border-radius: 0;
+  }
+}
+
+.font-serif {
+  font-family: $font-serif !important;
+}
+
+.font-monospace {
+  font-family: $font-monospace !important;
+}
+
+@media only screen and (max-width: $page-width) {
+  :root {
+    font-size: 16px;
+  }
+
+  body {
+    padding: 0 1em;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  h2 {
+    font-size: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.125em;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,27 @@
+{% if pagination and pagination.total > 1 %}
+  <nav class="pagination" aria-label="pagination">
+    {% if pagination.previous %}
+      <a
+        class="pagination__button pagination__button--prev"
+        title="Newer Posts"
+        href="{{pagination.previous.url}}"
+      >
+        Newer Posts
+      </a>
+    {% endif %}
+
+    <p class="pagination__number">
+      Page {{pagination.current}} of {{pagination.total}}
+    </p>
+
+    {% if pagination.next %}
+      <a
+        class="pagination__button pagination__button--prev"
+        title="Older Posts"
+        href="{{pagination.next.url}}"
+      >
+        Older Posts
+      </a>
+    {% endif %}
+  </nav>
+{% endif %}

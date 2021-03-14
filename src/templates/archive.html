@@ -1,13 +1,6 @@
-{% extends "./_include/base.html" -%}
-{% import "./_include/macros.html" as macros -%}
+{% extends "./_include/base-page.html" %}
+{% import "./_include/blog/macros.html" as macros %}
 
-{%- block content -%}
-<article class="post">
-  <header class="post__header">
-    <h1 class="post__title">Articles</h1>
-  </header>
-  <div class="post__content">
-    {{macros.listPosts($posts)}}
-  </div>
-</article>
-{%- endblock -%}
+{% block content %}
+  {{macros.renderPostList($posts)}}
+{% endblock %}

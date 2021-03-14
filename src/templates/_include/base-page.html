@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include "./head.html" %}
+  <body>
+    {% include "./page-header.html" %}
+    <main class="page-body">
+      {% block pageBody %}
+        <header class="page-body__header">
+          <h1 class="page-body__title">{{title}}</h1>
+        </header>
+        <div class="page-body__content">
+          {% block content %}{% endblock content %}
+        </div>
+      {% endblock pageBody %}
+    </main>
+    {% include "./page-footer.html" %}
+    {% include "./foot.html" %}
+  </body>
+</html>

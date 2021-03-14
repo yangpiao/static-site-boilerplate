@@ -1,5 +1,5 @@
-{% extends "../_include/base.html" -%}
+{% extends "../_include/base-page.html" %}
 
-{%- block content -%}
-{% include "../_include/article.html" %}
-{%- endblock -%}
+{% block pageBody %}
+  {% include "../_include/blog/post.html" %}
+{% endblock %}

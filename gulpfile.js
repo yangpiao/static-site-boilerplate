@@ -30,7 +30,10 @@ const clean = () => exec(`rm -rf ${DIST}`);
 // assets
 const moveAssets = () => src(ASSETS).pipe(dest(DIST));
 // styles
-const buildSass = () => exec(`yarn sass --style compressed ${PATH_STYLES}:${PATH_CSS}`);
+const buildSass = () =>
+  exec(
+    `yarn sass --style compressed ${PATH_STYLES}/index.scss ${PATH_CSS}/styles.css`
+  );
 const buildPostcss = () =>
   src(CSS)
     .pipe(postcss([ autoprefixer() ]))

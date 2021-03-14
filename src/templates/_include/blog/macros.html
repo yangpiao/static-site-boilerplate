@@ -1,0 +1,29 @@
+{% macro renderPostList(posts, count = 0) %}
+  {% if count <= 0 or count > posts.length %}
+    {% set count = posts.length %}
+  {% endif %}
+  <ol class="post-list">
+    {% for post in posts %}
+      {% set title = post.title %}
+      {% set url = post.url %}
+      {% set absoluteUrl = post.absoluteUrl %}
+      {% set author = post.author %}
+      {% set time = post.time %}
+      {% set tags = post.tags %}
+      {% set excerpt = post.excerpt %}
+      {% set content = post.content %}
+      {% set comments = post.comments %}
+
+      {% if loop.index <= count %}
+        <li class="post-list__item">
+          <h2 class="post-list__title">
+            <a class="post-list__title-link" title="{{title}}" href="{{url}}">{{title}}</a>
+          </h2>
+          <div class="post-list__meta">
+            {% include "./post-meta.html" %}
+          </div>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+{% endmacro %}

@@ -1,14 +1,17 @@
 ---
 title: Markdown Cheatsheet
-time: 1/1/2021
-tags: [ markdown ]
+time: 4/19/2014 00:11:06
+tags: [ test ]
 ...
 
-This is intended as a quick reference and showcase. For more complete info, see [John Gruber's original spec](http://daringfireball.net/projects/markdown/) and the [Github-flavored Markdown info page](http://github.github.com/github-flavored-markdown/).
+测试用的
 
 <!-- $more -->
 
-<!-- $TOC -->
+This is intended as a quick reference and showcase. For more complete info, see [John Gruber's original spec](http://daringfireball.net/projects/markdown/) and the [Github-flavored Markdown info page](http://github.github.com/github-flavored-markdown/).
+
+
+<!-- $toc -->
 
 ## Headers
 
@@ -28,21 +31,6 @@ Alt-H1
 Alt-H2
 ------
 ```
-
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
-
-Alternatively, for H1 and H2, an underline-ish style:
-
-Alt-H1
-======
-
-Alt-H2
-------
 
 ## Emphasis
 
@@ -164,9 +152,11 @@ Reference-style:
 Here's our logo (hover to see the title text):
 
 Inline-style: 
+
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
 Reference-style: 
+
 ![alt text][logo]
 
 [logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"

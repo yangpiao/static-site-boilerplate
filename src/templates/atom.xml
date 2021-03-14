@@ -8,19 +8,19 @@
   <author>
     <name><![CDATA[{{$site.author}}]]></name>
   </author>
-  {% for post in $posts -%}
-  {% if loop.index <= 10 -%}
-  <entry>
-    <author>
-      <name><![CDATA[{{post.author}}]]></name>
-      <uri>{{post.absoluteUrl}}</uri>
-    </author>
-    <title type="html"><![CDATA[{{post.title}}]]></title>
-    <link href="{{post.absoluteUrl}}"/>
-    <id>{{post.absoluteUrl}}</id>
-    <updated>{{post.time | datetime}}</updated>
-    <content type="html"><![CDATA[{{post.content|safe}}]]></content>
-  </entry>
-  {%- endif %}
-  {%- endfor %}
+  {% for post in $posts %}
+    {% if loop.index <= 10 %}
+      <entry>
+        <author>
+          <name><![CDATA[{{post.author}}]]></name>
+          <uri>{{post.absoluteUrl}}</uri>
+        </author>
+        <title type="html"><![CDATA[{{post.title}}]]></title>
+        <link href="{{post.absoluteUrl}}"/>
+        <id>{{post.absoluteUrl}}</id>
+        <updated>{{post.time | datetime}}</updated>
+        <content type="html"><![CDATA[{{post.content|safe}}]]></content>
+      </entry>
+    {% endif %}
+  {% endfor %}
 </feed>
