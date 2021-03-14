@@ -24,30 +24,35 @@ const STYLES = `${PATH_STYLES}/**/*.scss`;
 const CSS = `${PATH_CSS}/**/*.css`;
 const LIB = 'lib/**/*';
 
+const CMD_SASS = `yarn sass --style compressed \\
+  ${PATH_STYLES}/index.scss ${PATH_CSS}/styles.css`;
+const CMD_RENDER_HTML = `node ./lib/build.js --config=build-config.js`;
+const CMD_MINIFY_HTML = `yarn html-minifier \\
+  --collapse-whitespace \\
+  --input-dir ${DIST} \\
+  --file-ext html \\
+  --output-dir ${DIST}`;
+
 // clean
 const clean = () => exec(`rm -rf ${DIST}`);
 
 // assets
 const moveAssets = () => src(ASSETS).pipe(dest(DIST));
+
 // styles
-const buildSass = () =>
-  exec(
-    `yarn sass --style compressed ${PATH_STYLES}/index.scss ${PATH_CSS}/styles.css`
-  );
-const buildPostcss = () =>
-  src(CSS)
-    .pipe(postcss([ autoprefixer() ]))
-    .pipe(dest(PATH_CSS));
+const buildSass = () => exec(CMD_SASS);
+const buildPostcss = () => src(CSS).pipe(postcss([ autoprefixer() ])).pipe(dest(PATH_CSS));
 const buildStyles = series(buildSass, buildPostcss);
+
 // html
-const renderHtml = () => exec(`node ./lib/build.js --config=build-config.js`);
-const minifyHtml = () => exec(
-  `yarn html-minifier --collapse-whitespace --input-dir ${DIST} --file-ext html --output-dir ${DIST}`
-);
+const renderHtml = () => exec(CMD_RENDER_HTML);
+const minifyHtml = () => exec(CMD_MINIFY_HTML);
 const buildHtml = series(renderHtml, minifyHtml);
+
 // build all in parallel
 const build = parallel(moveAssets, buildHtml, buildStyles);
 
+// dev server
 const reload = () => Promise.resolve(browserSync.reload());
 const serveFiles = (callback) => {
   browserSync.init({
